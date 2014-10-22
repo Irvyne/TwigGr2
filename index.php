@@ -16,13 +16,27 @@ $twig = new Twig_Environment($loader, [
     //'cache' => null,
 ]);
 
-$article = [
-    'name'    => 'My Beautiful Article',
-    'content' => 'Hi, it\'s my content!',
-    'enabled' => true,
-    'date'    => new DateTime('now'),
+$articles = [
+    [
+        'name'    => 'My Beautiful Article',
+        'content' => 'Hi, it\'s my content!',
+        'enabled' => true,
+        'date'    => new DateTime('now'),
+    ],
+    [
+        'name'    => 'zeljkfhzekjfbh',
+        'content' => 'azpdklpkbvwh',
+        'enabled' => false,
+        'date'    => new DateTime('now'),
+    ],
+    [
+        'name'    => 'Lipsum',
+        'content' => 'Lorem',
+        'enabled' => true,
+        'date'    => new DateTime('now'),
+    ],
 ];
 
-echo $twig->render('article.html.twig', [
-    'article' => $article,
+echo $twig->render('Blog/article.html.twig', [
+    'articles' => $articles,
 ]);
