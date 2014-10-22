@@ -1,0 +1,15 @@
+{
+    "name": "irvyne/twig-gr2",
+    "description": "My First Twig Engine Template Biatch!",
+    "require": {
+        "twig/twig": "1.16.*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Thibaud BARDIN",
+            "email": "thibaud.bardin@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
