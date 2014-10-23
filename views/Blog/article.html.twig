@@ -9,11 +9,13 @@
         {% if article.enabled %}
             <article>
                 <header>
-                    <h1>{{ article.name }}</h1>
+                    <h1>{{ article.id }} - {{ article.title }}</h1>
                 </header>
                 <p>{{ article.content }}</p>
                 <footer>
-                    <time datetime="{{ article.date|date('c') }}">{{ article.date|date('d-m-Y') }}</time>
+                    {% if article.created_at != '0000-00-00 00:00:00' %}
+                        <time datetime="{{ article.created_at|date('c') }}">{{ article.created_at|date('d-m-Y') }}</time>
+                    {% endif %}
                 </footer>
             </article>
         {% endif %}

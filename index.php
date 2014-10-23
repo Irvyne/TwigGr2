@@ -30,7 +30,7 @@ try {
 
 $sql = "SELECT * FROM article";
 $pdoStmt = $pdo->query($sql);
-var_dump($pdoStmt->fetchAll(PDO::FETCH_OBJ));
+$articles = $pdoStmt->fetchAll(PDO::FETCH_OBJ);
 
 echo $twig->render('Blog/article.html.twig', [
     'articles' => $articles,
