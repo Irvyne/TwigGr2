@@ -16,26 +16,21 @@ $twig = new Twig_Environment($loader, [
     //'cache' => null,
 ]);
 
-$articles = [
-    [
-        'name'    => 'My Beautiful Article',
-        'content' => 'Hi, it\'s my content!',
-        'enabled' => true,
-        'date'    => new DateTime('now'),
-    ],
-    [
-        'name'    => 'zeljkfhzekjfbh',
-        'content' => 'azpdklpkbvwh',
-        'enabled' => false,
-        'date'    => new DateTime('now'),
-    ],
-    [
-        'name'    => 'Lipsum',
-        'content' => 'Lorem',
-        'enabled' => true,
-        'date'    => new DateTime('now'),
-    ],
-];
+$dsn        = 'mysql:host=localhost;dbname=blog';
+$user       = 'root';
+$password   = 'toor';
+
+try {
+    $pdo = new PDO($dsn, $user, $password);
+} catch (PDOException $e) {
+    @mail('thibaud.bardin+error@gmail.com', 'Erreur sur mon Site', $e->getMessage());
+    echo 'Erreur de connexion a la BDD';
+    die;
+}
+
+$sql = "SELECT * FROM article";
+$pdoStmt = $pdo->query($sql);
+var_dump($pdoStmt->fetchAll(PDO::FETCH_OBJ));
 
 echo $twig->render('Blog/article.html.twig', [
     'articles' => $articles,
